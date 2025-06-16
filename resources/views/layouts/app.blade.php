@@ -26,7 +26,7 @@
 
     .sidebar {
         width: 240px;
-        background: linear-gradient(180deg, #212529, #343a40);
+        background: linear-gradient(180deg,rgb(17, 168, 173),rgb(121, 121, 121));
         padding: 20px 15px;
         color: white;
         flex-shrink: 0;
@@ -48,7 +48,7 @@
     }
 
     .sidebar a {
-        color: #ced4da;
+        color:rgb(255, 255, 255);
         text-decoration: none;
         display: block;
         padding: 8px 12px;
@@ -66,6 +66,7 @@
 
     .sidebar .collapse a {
         padding-left: 25px;
+        color:rgb(255, 255, 255);
         font-size: 14px;
     }
 
@@ -78,7 +79,7 @@
         font-size: 13px;
         font-weight: 600;
         text-transform: uppercase;
-        color: #adb5bd;
+        color:rgb(255, 255, 255);
         margin: 15px 0 5px 12px;
     }
 
@@ -153,7 +154,7 @@
     <div class="main-content">
         <div id="app">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md" style="background-color:rgb(17, 168, 173);">
                 <div class="container">
                    
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -171,7 +172,7 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <a id="navbarDropdown" style="color:white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
