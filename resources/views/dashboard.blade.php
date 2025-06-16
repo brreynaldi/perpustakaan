@@ -1,40 +1,42 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
-    <h3>Dashboard</h3>
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h5>Total Buku</h5>
-                    <h3>{{ $books }}</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h5>Buku Dipinjam</h5>
-                    <h3>{{ $borrowed }}</h3>
-                </div>
-            </div>
+    <h4 class="mb-4">📊 Dashboard Peminjaman Buku</h4>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <canvas id="lineChart" height="120"></canvas>
         </div>
     </div>
-
-    <h4>Riwayat Peminjaman Saya</h4>
-    <table class="table table-bordered">
-        <thead>
-            <tr><th>Judul Buku</th><th>Tanggal Pinjam</th><th>Tanggal Kembali</th></tr>
-        </thead>
-        <tbody>
-            @foreach ($myBorrowings as $b)
-                <tr>
-                    <td>{{ $b->book->title }}</td>
-                    <td>{{ $b->borrowed_at->format('d-m-Y') }}</td>
-                    <td>{{ $b->returned_at ? $b->returned_at->format('d-m-Y') : 'Belum kembali' }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
 </div>
+
+<script>
+    const ctx = document.getElementById('lineChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: {!! $labels !!},
+            datasets: [{
+                label: 'Jumlah Peminjaman per Bulan',
+                data: {!! $data !!},
+                borderColor: '#4e73df',
+                backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+</script>
 @endsection

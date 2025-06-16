@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -37,6 +38,9 @@ Route::get('/rekap/peminjaman/export', [App\Http\Controllers\BorrowingController
 
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/users/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::resource('users', UserController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/borrow', [BorrowingController::class, 'borrowList'])->name('borrow.book.list');
