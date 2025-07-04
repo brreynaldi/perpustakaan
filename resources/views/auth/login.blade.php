@@ -7,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url("{{ asset('images/back.jpeg') }}"); /* ganti nama file sesuai upload kamu */
-            background-repeat: repeat;
-            background-size: contain;
+            background-image: url("{{ asset('images/back2.jpg') }}"); /* ganti nama file sesuai upload kamu */
+          
+            background-size: 80vw;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <div class="login-box shadow">
+    <div class="login-box ">
         <h4 class="text-primary fw-bold mb-4 text-center">Selamat Datang di<br>Aplikasi Perpustakaan <br> SMK Bhakti Anindya</h4>
         <form method="POST" action="{{ route('login.submit') }}">
             @csrf

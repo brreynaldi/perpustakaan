@@ -28,15 +28,6 @@
             <input type="email" name="email" class="form-control" placeholder="Masukkan email" value="{{ old('email') }}" required>
         </div>
 
-        <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <select name="role" class="form-select" required>
-                <option value="">-- Pilih Role --</option>
-                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-                <option value="guru" {{ old('role') == 'guru' ? 'selected' : '' }}>Guru</option>
-                <option value="siswa" {{ old('role') == 'siswa' ? 'selected' : '' }}>Siswa</option>
-            </select>
-        </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">Kata Sandi</label>

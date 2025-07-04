@@ -24,14 +24,12 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'role' => 'required'
+            'password' => 'required|min:6'
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 
@@ -45,7 +43,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->update($request->only('name', 'email', 'role'));
+        $user->update($request->only('name', 'email'));
         return redirect()->route('users.index')->with('success', 'User diperbarui');
     }
 
