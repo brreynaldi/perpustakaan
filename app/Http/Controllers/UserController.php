@@ -35,6 +35,7 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User ditambahkan');
     }
+    
 
     public function edit(User $user)
     {
@@ -43,7 +44,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->update($request->only('name', 'email'));
+        $user->update($request->only('name', 'email','password'));
         return redirect()->route('users.index')->with('success', 'User diperbarui');
     }
 
